@@ -10,7 +10,7 @@ If you have any questions about the contribution process, please feel free to se
 
 ### Install
 
-Note: You will need NodeJS and `pnpm` to build the extension package.
+Note: You will need Node.js (>= 22 LTS) and `pnpm` to build the extension package.
 
 ```bash
 pip install -e .[dev]
