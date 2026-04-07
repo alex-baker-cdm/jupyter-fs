@@ -212,6 +212,8 @@ Any filesystem resources specified in any server-side config file will be merged
 
 ## Development
 
+**Requirements:** Python >= 3.10, Node.js >= 22 LTS, and `pnpm`.
+
 See [CONTRIBUTING.md](https://github.com/jpmorganchase/jupyter-fs/blob/main/.github/CONTRIBUTING.md) for guidelines.
 
 ## License
