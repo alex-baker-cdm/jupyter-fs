@@ -34,13 +34,13 @@ jobs:
         node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
 
-    - uses: actions-ext/python/setup@main
+    - uses: actions-ext/python/setup@c8228d827a81b9f8c808825328af361c45461ba3 # main
       with:
         version: ${{ matrix.python-version }}
 
-    - uses: actions-ext/node/setup@main
+    - uses: actions-ext/node/setup@03c9f6b2d9c9fa2c26cfa22d0fa379a69329b319 # main
       with:
         version: 22.x
 
@@ -93,20 +93,20 @@ jobs:
       run: make teardown-infra-common
 
     - name: Upload test results (Python)
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
       with:
         name: test-results-${{ matrix.os }}-${{ matrix.python-version }}-${{ matrix.node-version }}
         path: '**/junit.xml'
       if: ${{ always() }}
 
     - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v2
+      uses: EnricoMi/publish-unit-test-result-action@7622c5bf3d112a72ab4fa3951c2aa5723d8ab92d # v2.25.0
       with:
         files: '**/junit.xml'
       if: matrix.os == 'ubuntu-latest'
 
     - name: Upload coverage
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@0fb7174895f61a3b6b78fc075e0cd60383518dac # v5.5.5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -114,7 +114,7 @@ jobs:
       run: make dist
       if: matrix.os == 'ubuntu-latest'
 
-    - uses: actions/upload-artifact@v6
+    - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
       with:
         name: dist-${{matrix.os}}
         path: dist
